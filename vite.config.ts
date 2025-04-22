@@ -8,6 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from 'vite-plugin-dts'
 
+import { peerDependencies } from './package.json';
+
 export default defineConfig({
     plugins: [react(), tsconfigPaths(), tailwindcss(), dts({rollupTypes: true})],
     test: {
@@ -32,11 +34,16 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, 'lib/index.ts'),
             name: 'simple-ui',
+            formats: ['es', 'cjs'],
             fileName: (format) => `simple-ui.${format}.js`,
         },
         rollupOptions: {
-            external: ['react', 'react-dom', 'react/jsx-runtime'],
+            external: [
+                ...Object.keys(peerDependencies)],
             output: {
+                inlineDynamicImports: false,
+                preserveModules: true,
+                exports: 'named',
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
