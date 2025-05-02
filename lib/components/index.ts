@@ -27,3 +27,35 @@ export {
   DialogTrigger,
   DialogClose,
 } from './ui/dialog';
+export {
+  Dropdown,
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+} from './ui/dropdown';
+export type { DropdownOption, DropdownProps } from './ui/dropdown/dropdown-component';
+export { Autocomplete } from './ui/autocomplete';
+export type { AutocompleteOption, AutocompleteProps } from './ui/autocomplete';
+
+export {
+  Table,
+  TableHead,
+  TableBody,
+  TableFoot,
+  TableRow,
+  TableCell,
+} from './ui/table';
+export type {
+  TableProps,
+  TableVariants,
+  TableHeadProps,
+  TableBodyProps,
+  TableFootProps,
+  TableRowProps,
+  TableCellProps,
+} from './ui/table';
